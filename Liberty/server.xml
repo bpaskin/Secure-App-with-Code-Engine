@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+    <featureManager>
+        <feature>transportSecurity-1.0</feature>
+        <feature>servlet-3.1</feature>
+        <feature>appSecurity-2.0</feature>
+        <feature>openidConnectClient-1.0</feature>
+    </featureManager>
+
+    <httpEndpoint id="defaultHttpEndpoint" httpPort="-1" httpsPort="8080" host="*"/>
+
+    <openidConnectClient id="SecurityRP"
+                         clientId="10702e69-cf44-45bf-88ce-bafb0b99e712"
+                         clientSecret="ZGI5ZWJhMWItOGVkZS00MTdlLTgyNDQtMzU4ODRlNGZiNWUz"
+                         authorizationEndpointUrl="https://us-south.appid.cloud.ibm.com/oauth/v4/d25a534c-dd7a-47fa-b1ec-72a49a06551a/authorization"
+                         tokenEndpointUrl="https://us-south.appid.cloud.ibm.com/oauth/v4/d25a534c-dd7a-47fa-b1ec-72a49a06551a/token"
+                         jwkEndpointUrl="https://us-south.appid.cloud.ibm.com/oauth/v4/d25a534c-dd7a-47fa-b1ec-72a49a06551a/publickeys"
+                         issuerIdentifier="https://us-south.appid.cloud.ibm.com/oauth/v4/d25a534c-dd7a-47fa-b1ec-72a49a06551a"
+                         tokenEndpointAuthMethod="basic"
+                         signatureAlgorithm="RS256"
+                         authFilterid="secured"
+                         redirectToRPHostAndPort="https://${env.APPID_SAMPLE_HOST}:${env.APPID_SAMPLE_SSL_PORT}"
+    />
+
+    <authFilter id="secured">
+        <requestUrl id="RequestUrl" urlPattern="/ProtectedServlet" matchType="contains"/>
+    </authFilter>
+
+    <keyStore id="defaultKeyStore" password="myPassword"/>
+    <keyStore id="appidtruststore" password="Liberty" location="${server.config.dir}/mytruststore.jks"/>
+    <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="appidtruststore" trustDefaultCerts="true" />
+
+    <application type="war" id="ProtectedServlet" context-root="/" location="${server.config.dir}/apps/libertySample-1.0.0.war">
+    	<application-bnd>
+        	<security-role name="myrole">
+                	<special-subject type="ALL_AUTHENTICATED_USERS" />
+                </security-role>
+        </application-bnd>
+    </application>
+
+    <applicationManager autoExpand="true"/>
+    <webContainer disableXPoweredBy="true"/>
+    <httpDispatcher enableWelcomePage="false"/>
+</server>
