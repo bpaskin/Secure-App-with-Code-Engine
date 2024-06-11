@@ -1,3 +1,0 @@
-applications:
-- name: appid-java
-  memory: 512M
