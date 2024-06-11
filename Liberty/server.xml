@@ -7,7 +7,7 @@
         <feature>openidConnectClient-1.0</feature>
     </featureManager>
 
-    <httpEndpoint id="defaultHttpEndpoint" httpPort="-1" httpsPort="8080" host="*"/>
+    <httpEndpoint id="defaultHttpEndpoint" httpPort="-1" httpsPort="8443" host="*"/>
 
     <openidConnectClient id="SecurityRP"
                          clientId="10702e69-cf44-45bf-88ce-bafb0b99e712"
