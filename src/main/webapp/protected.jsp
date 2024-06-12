@@ -16,7 +16,7 @@
     <div class="top-container">
         <div class="top">
             <div class="logout">
-                <a href='/appidSample/logout'><img class="logout-icon" href='/logout' id="logoutIcon"
+                <a href='/logout'><img class="logout-icon" href='/logout' id="logoutIcon"
                                        src="images/logout.svg"></a>
             </div>
         </div>
