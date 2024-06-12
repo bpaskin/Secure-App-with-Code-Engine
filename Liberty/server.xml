@@ -19,7 +19,7 @@
                          tokenEndpointAuthMethod="basic"
                          signatureAlgorithm="RS256"
                          authFilterid="secured"
-                         redirectToRPHostAndPort="https://${env.APPID_SAMPLE_HOST}:${env.APPID_SAMPLE_SSL_PORT}"
+	                 redirectToRPHostAndPort="https://${CE_HOST}:443"
     />
 
     <authFilter id="secured">
