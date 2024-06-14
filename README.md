@@ -54,3 +54,37 @@ ibmcloud ce app create --name secure --build-source https://github.com/bpaskin/S
 ```
 ---
 ## Setup Cloud App ID
+1. Logon to the IBM Cloud, Select the hamburder menu in the top left and then select `Browser all services...` from the list.
+   
+![image](https://github.com/bpaskin/Secure-App-with-Code-Engine/blob/main/images/1-Browse%20all%20services.png)
+
+2. Select the App ID square from the available services
+   
+![image](https://github.com/bpaskin/Secure-App-with-Code-Engine/blob/main/images/2-App%20Id%20Service.png)
+
+3. If there is currently no instance available, select the Lite plan, check the terms and conditions box and hit the `create` button
+   
+![image](https://github.com/bpaskin/Secure-App-with-Code-Engine/blob/main/images/3-Create%20App%20Id%20Instance.png)
+
+4. Download the sample program
+   
+![image](https://github.com/bpaskin/Secure-App-with-Code-Engine/blob/main/images/6-Download%20Sample.png)
+
+5. Select the Java program so it create an application automatically for you, otherwise you will need to add an application later and chaneg the Liberty configuration
+    
+![image](https://github.com/bpaskin/Secure-App-with-Code-Engine/blob/main/images/7-Download%20Java%20.png)
+
+6. From the main page select `Manage Authentication` from the list, and keep only the `Cloud Directory` enabled.
+    
+![image](https://github.com/bpaskin/Secure-App-with-Code-Engine/blob/main/images/4-Enable%20signon%20features.png)
+
+7. Click on the `Authentication settings` tab and add the URL that was given to you for the deployed secure application and add a `/*` at the end.
+```
+(i.e., https://secure.<identfier.region>.codeengine.appdomain.cloud/*
+```
+
+![image](https://github.com/bpaskin/Secure-App-with-Code-Engine/blob/main/images/5-Add%20%20web%20redirect%20url.png)
+
+8. test you application!
+
+𐕣 Funeral Winter 𐕣
